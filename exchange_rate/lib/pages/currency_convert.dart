@@ -1,8 +1,20 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class CurrencyConvert extends StatelessWidget {
+class CurrencyConvert extends StatefulWidget {
   const CurrencyConvert({super.key});
+
+  @override
+  State<CurrencyConvert> createState() => _CurrencyConvertState();
+}
+
+class _CurrencyConvertState extends State<CurrencyConvert> {
+  double result = 0;
+  TextEditingController textEditingController = TextEditingController();
+  void convert() {
+    setState(() {
+      result = double.parse(textEditingController.text) * 2500;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +22,12 @@ class CurrencyConvert extends StatelessWidget {
       borderSide: BorderSide(width: 2),
       borderRadius: BorderRadius.circular(60),
     );
+
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
+        foregroundColor: Colors.white,
         elevation: 0,
         title: const Text("Currency Converter"),
         centerTitle: true,
@@ -21,10 +35,10 @@ class CurrencyConvert extends StatelessWidget {
 
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "0",
+              "Tsh $result",
               style: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
@@ -34,6 +48,7 @@ class CurrencyConvert extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
+                controller: textEditingController,
                 style: TextStyle(color: Colors.black87),
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -52,16 +67,12 @@ class CurrencyConvert extends StatelessWidget {
               padding: const EdgeInsets.all(5.0),
               child: TextButton(
                 onPressed: () {
-                  if (kDebugMode) {
-                    print("hellow");
-                  }
-
-                  debugPrint("hellow");
+                  convert();
                 },
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.red,
-                  fixedSize: Size(250, 20),
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  fixedSize: Size(380, 50),
                 ),
 
                 child: Text("Convert"),
