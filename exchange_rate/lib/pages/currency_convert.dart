@@ -12,6 +12,10 @@ class _CurrencyConvertState extends State<CurrencyConvert> {
   TextEditingController textEditingController = TextEditingController();
   void convert() {
     setState(() {
+      if (textEditingController.text.isEmpty) {
+        result = 0;
+        return;
+      }
       result = double.parse(textEditingController.text) * 2500;
     });
   }
@@ -33,21 +37,21 @@ class _CurrencyConvertState extends State<CurrencyConvert> {
         centerTitle: true,
       ),
 
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Tsh $result",
-              style: TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Tsh ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)}",
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: TextField(
+              TextField(
                 controller: textEditingController,
                 style: TextStyle(color: Colors.black87),
                 keyboardType: TextInputType.number,
@@ -62,10 +66,8 @@ class _CurrencyConvertState extends State<CurrencyConvert> {
                   focusedBorder: border,
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: TextButton(
+              const SizedBox(height: 10),
+              TextButton(
                 onPressed: () {
                   convert();
                 },
@@ -77,8 +79,8 @@ class _CurrencyConvertState extends State<CurrencyConvert> {
 
                 child: Text("Convert"),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
