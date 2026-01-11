@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 112, 198, 239),
+          seedColor: const Color.fromARGB(255, 237, 112, 239),
         ),
       ),
       home: CurrencyConvert(),

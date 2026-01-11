@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyConvert extends StatelessWidget {
@@ -12,8 +13,9 @@ class CurrencyConvert extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text("currency"),
+        backgroundColor: Colors.blueGrey,
+        elevation: 0,
+        title: const Text("Currency Converter"),
         centerTitle: true,
       ),
 
@@ -44,6 +46,25 @@ class CurrencyConvert extends StatelessWidget {
                   fillColor: Colors.white,
                   focusedBorder: border,
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: TextButton(
+                onPressed: () {
+                  if (kDebugMode) {
+                    print("hellow");
+                  }
+
+                  debugPrint("hellow");
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.red,
+                  fixedSize: Size(250, 20),
+                ),
+
+                child: Text("Convert"),
               ),
             ),
           ],
