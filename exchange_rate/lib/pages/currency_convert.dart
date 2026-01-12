@@ -16,7 +16,7 @@ class _CurrencyConvertState extends State<CurrencyConvert> {
         result = 0;
         return;
       }
-      result = double.parse(textEditingController.text) * 2500;
+      result = double.parse(textEditingController.text) * 0.86;
     });
   }
 
@@ -44,7 +44,17 @@ class _CurrencyConvertState extends State<CurrencyConvert> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "Tsh ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)}",
+                "USD to EUR",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 80),
+
+              Text(
+                "EUR ${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)}",
                 style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
