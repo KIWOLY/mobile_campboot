@@ -84,6 +84,44 @@ class Weather extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 20),
+            const Text(
+              "Additional Information",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    Icon(Icons.water_drop, size: 35),
+                    const SizedBox(height: 5),
+                    Text("Humidity", style: TextStyle(fontSize: 16)),
+                    const SizedBox(height: 5),
+                    Text("94", style: TextStyle(fontSize: 20)),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Icon(Icons.wind_power, size: 35),
+                    const SizedBox(height: 5),
+                    Text("Wind Speed", style: TextStyle(fontSize: 16)),
+                    const SizedBox(height: 5),
+                    Text("7.67", style: TextStyle(fontSize: 20)),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Icon(Icons.umbrella_sharp, size: 35),
+                    const SizedBox(height: 5),
+                    Text("Pressure", style: TextStyle(fontSize: 16)),
+                    const SizedBox(height: 5),
+                    Text("1006", style: TextStyle(fontSize: 20)),
+                  ],
+                ),
+              ],
+            ),
           ],
         ),
       ),
